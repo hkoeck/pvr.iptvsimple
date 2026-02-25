@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2025-09-11 08:29+0000\n"
+"PO-Revision-Date: 2026-02-24 12:13+0000\n"
 "Last-Translator: rimasx <riks_12@hot.ee>\n"
 "Language-Team: Estonian <https://kodi.weblate.cloud/projects/kodi-add-ons-pvr-clients/pvr-iptvsimple/et_ee/>\n"
 "Language: et_ee\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13.1\n"
+"X-Generator: Weblate 5.16\n"
 
 msgctxt "Addon Summary"
 msgid "Kodi PVR addon for IPTV support."
@@ -81,12 +81,12 @@ msgstr "Vaikimisi teenusepakkuja nimi"
 #. label: Channels - enableProviderMappings
 msgctxt "#30008"
 msgid "Enable provider mapping"
-msgstr ""
+msgstr "Luba teenusepakkujate vastendamine"
 
 #. label: Channels - providerMappingFile
 msgctxt "#30009"
 msgid "Provider name mapping file"
-msgstr ""
+msgstr "Teenusepakkujate nimede vastendamise fail"
 
 #. label-category: general
 #. label-group: General - General
@@ -112,22 +112,22 @@ msgstr "Käivituskanali number"
 #. label: General - numberByOrder
 msgctxt "#30014"
 msgid "Only number by channel order in M3U"
-msgstr ""
+msgstr "Nummerda ainult M3U kanali järjekorra alusel"
 
 #. label: General - m3uRefreshMode
 msgctxt "#30015"
 msgid "Auto refresh mode"
-msgstr ""
+msgstr "Automaatse värskendamise režiim"
 
 #. label: General - m3uRefreshIntervalMins
 msgctxt "#30016"
 msgid "Refresh interval"
-msgstr ""
+msgstr "Värskendamise intervall"
 
 #. label: General - m3uRefreshHour
 msgctxt "#30017"
 msgid "Refresh hour (24h)"
-msgstr ""
+msgstr "Värskendamise kellaaeg (24h)"
 
 #. label-group: General - Refresh
 msgctxt "#30018"
@@ -147,7 +147,7 @@ msgstr "EPG"
 #. label: EPG Settings - epgPath
 msgctxt "#30021"
 msgid "XMLTV path"
-msgstr ""
+msgstr "XMLTV faili tee"
 
 #. label: EPG Settings - epgUrl
 msgctxt "#30022"
@@ -157,7 +157,7 @@ msgstr "XMLTV URL"
 #. label: EPG Settings - epgTSOverride
 msgctxt "#30023"
 msgid "Apply time shift to all channels"
-msgstr ""
+msgstr "Rakenda ajanihe kõigile kanalitele"
 
 #. label: EPG Settings - epgTimeShift
 msgctxt "#30024"
@@ -182,23 +182,23 @@ msgstr "{0:.1f} tundi"
 #. label: General - tvChannelGroupsOnly
 msgctxt "#30028"
 msgid "Only load TV channels in groups"
-msgstr ""
+msgstr "Laadi ainult rühmadesse kuuluvad telekanalid"
 
 #. label-group: General - TV Groups
 msgctxt "#30029"
 msgid "TV Groups"
-msgstr ""
+msgstr "Telerühmad"
 
 #. label-category: channellogos
 #. label-group: Channel Logos - Channel Logos
 msgctxt "#30030"
 msgid "Channel Logos"
-msgstr ""
+msgstr "Kanalilogod"
 
 #. label: Channel Logos - logoPath
 msgctxt "#30031"
 msgid "Channel logos folder"
-msgstr ""
+msgstr "Kanalilogode kaust"
 
 #. label: Channel Logos - logoBaseUrl
 msgctxt "#30032"
@@ -208,40 +208,40 @@ msgstr "Kanalilogode aadress"
 #. label-group: General - Radio Groups
 msgctxt "#30033"
 msgid "Radio Groups"
-msgstr ""
+msgstr "Raadiorühmad"
 
 #. label: General - tvGroupMoade
 msgctxt "#30034"
 msgid "TV group mode"
-msgstr ""
+msgstr "Telerühma režiim"
 
 #. label: General - radioGroupMoade
 msgctxt "#30035"
 msgid "Radio group mode"
-msgstr ""
+msgstr "Raadiorühma režiim"
 
 #. label-option: Channels - tvGroupmode
 #. label-option: Channels - radioGroupGode
 msgctxt "#30036"
 msgid "All groups"
-msgstr ""
+msgstr "Kõik rühmad"
 
 #. label-option: Channels - tvGroupMode
 #. label-option: Channels - radioGroupGode
 msgctxt "#30037"
 msgid "Some groups"
-msgstr ""
+msgstr "Mõned rühmad"
 
 #. label-option: General - tvGroupMode
 #. label-option: General - radioGroupGode
 msgctxt "#30038"
 msgid "Custom groups"
-msgstr ""
+msgstr "Kohandatud rühmad"
 
 #. label: Channels - numTvGroups
 msgctxt "#30039"
 msgid "Number of TV groups"
-msgstr ""
+msgstr "Telerühmade arv"
 
 #. label-group: Channel Logos - XMLTV Logos Options
 msgctxt "#30040"
@@ -271,27 +271,27 @@ msgstr "Eelistus on XMLTV"
 #. label: General - oneTvGroup
 msgctxt "#30045"
 msgid "TV group 1"
-msgstr ""
+msgstr "Telerühm 1"
 
 #. label: General - twoTvGroup
 msgctxt "#30046"
 msgid "TV group 2"
-msgstr ""
+msgstr "Telerühm 2"
 
 #. label: General - threeTvGroup
 msgctxt "#30047"
 msgid "TV group 3"
-msgstr ""
+msgstr "Telerühm 3"
 
 #. label: General - fourTvGroup
 msgctxt "#30048"
 msgid "TV group 4"
-msgstr ""
+msgstr "Telerühm 4"
 
 #. label: General - fiveTvGroup
 msgctxt "#30049"
 msgid "TV group 5"
-msgstr ""
+msgstr "Telerühm 5"
 
 #. label-category: genres
 #. label-group: Genres - Genres
@@ -302,7 +302,7 @@ msgstr "Žanrid"
 #. label: Genres - useEpgGenreText
 msgctxt "#30051"
 msgid "Use genre text from XMLTV when mapping genres"
-msgstr ""
+msgstr "Žanrite vastendamisel kasuta XMLTV žanritüüpe"
 
 #. label: Genres - genresPath
 msgctxt "#30052"
@@ -317,32 +317,32 @@ msgstr ""
 #. label: Channels - customTvGroupsFile
 msgctxt "#30054"
 msgid "Custom TV groups file"
-msgstr ""
+msgstr "Kohandatud telerühmade fail"
 
 #. label: General - oneRadioGroup
 msgctxt "#30055"
 msgid "Radio group 1"
-msgstr ""
+msgstr "Raadiorühm 1"
 
 #. label: General - twoRadioGroup
 msgctxt "#30056"
 msgid "Radio group 2"
-msgstr ""
+msgstr "Raadiorühm 2"
 
 #. label: General - threeRadioGroup
 msgctxt "#30057"
 msgid "Radio group 3"
-msgstr ""
+msgstr "Raadiorühm 3"
 
 #. label: General - fourRadioGroup
 msgctxt "#30058"
 msgid "Radio group 4"
-msgstr ""
+msgstr "Raadiorühm 4"
 
 #. label: General - fiveRadioGroup
 msgctxt "#30059"
 msgid "Radio group 5"
-msgstr ""
+msgstr "Raadiorühm 5"
 
 #. label-category: advanced
 msgctxt "#30060"
@@ -407,17 +407,17 @@ msgstr ""
 #. label: General - numRadioGroups
 msgctxt "#30072"
 msgid "Number of Radio groups"
-msgstr ""
+msgstr "Raadiorühmade arv"
 
 #. label: Channels - customRadioGroupsFile
 msgctxt "#30073"
 msgid "Custom Radio groups file"
-msgstr ""
+msgstr "Kohandatud raadiorühmade fail"
 
 #. label: General - radioChannelGroupsOnly
 msgctxt "#30074"
 msgid "Only load Radio channels in groups"
-msgstr ""
+msgstr "Laadi ainult raadiorühmades olevad kanalid"
 
 #. help: Channel Logos - useLogosLocalPathOnly
 msgctxt "#30075"
@@ -427,7 +427,7 @@ msgstr ""
 #. label-category: Groups
 msgctxt "#30076"
 msgid "Groups"
-msgstr ""
+msgstr "Rühmad"
 
 #. label: EPG Settings - epgIgnoreCaseForChannelIds
 msgctxt "#30077"
@@ -592,12 +592,12 @@ msgstr ""
 #. label: Media - mediaGroupByTitle
 msgctxt "#30151"
 msgid "Group entries by title"
-msgstr ""
+msgstr "Rühmita üksused nime järgi"
 
 #. label: Media - mediaGroupBySeason
 msgctxt "#30152"
 msgid "Group entries by season"
-msgstr ""
+msgstr "Rühmita üksused hooaja järgi"
 
 #. label: Media - mediaBySeasonEpisode
 msgctxt "#30153"
@@ -617,7 +617,7 @@ msgstr ""
 #. label: Media - mediaUseM3UGroupForGrouping
 msgctxt "#30156"
 msgid "Use M3U Group name in path"
-msgstr ""
+msgstr "Kasuta asukohas M3U rühma nime"
 
 #. label-option: Media - mediaEnabled - IGNORE_GROUP_NAME
 msgctxt "#30157"
