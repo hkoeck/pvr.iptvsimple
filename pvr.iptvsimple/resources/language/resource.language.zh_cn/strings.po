@@ -7,27 +7,27 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2026-01-24 03:13+0000\n"
-"Last-Translator: wabisabi926 <liwenliang926@163.com>\n"
+"PO-Revision-Date: 2026-04-22 03:31+0000\n"
+"Last-Translator: wabisabi926 <wabisabi926@foxmail.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://kodi.weblate.cloud/projects/kodi-add-ons-pvr-clients/pvr-iptvsimple/zh_Hans/>\n"
 "Language: zh_cn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.15.2\n"
+"X-Generator: Weblate 5.17\n"
 
 msgctxt "Addon Summary"
 msgid "Kodi PVR addon for IPTV support."
-msgstr "支持 IPTV 的 Kodi PVR 插件。"
+msgstr "IPTV 直播专用 Kodi PVR 插件。"
 
 msgctxt "Addon Description"
 msgid "IPTV Simple PVR Client support m3u playlists, streaming of Live TV for multicast/unicast sources, listening to Radio channels and EPG.[CR]    [CR]For documentation visit: https://github.com/kodi-pvr/pvr.iptvsimple/blob/Matrix/README.md[CR]    "
-msgstr "IPTV Simple PVR 客户端支持 m3u 播放列表、多播/单播源直播电视、收听电台和电子节目单。    [CR] 访问 https://github.com/kodi-pvr/pvr.iptvsimple/blob/Matrix/README.md 以获取相关文档[CR]    "
+msgstr "IPTV Simple PVR 客户端支持 m3u 播放列表、组播/单播源直播电视、收听电台和电子节目指南。[CR]    [CR]访问 https://github.com/kodi-pvr/pvr.iptvsimple/blob/Matrix/README.md 以获取相关文档[CR]    "
 
 msgctxt "Addon Disclaimer"
 msgid "The authors are in no way responsible for failed playings, incorrect EPG times, wasted hours, or any other undesirable effects."
-msgstr "作者不对播放失败、错误的电子节目单时间造成时间浪费或其它不良影响负责。"
+msgstr "作者对播放失败、电子节目指南时间错误、耗时白费或其他任何不良后果，概不负责。"
 
 #. settings labels
 #. label: General - m3uPathType
@@ -43,7 +43,7 @@ msgstr "位置"
 #. label-option: General - genresPathType
 msgctxt "#30001"
 msgid "Local path (includes local network)"
-msgstr "本地路径 (包括本地网络)"
+msgstr "本地路径 (包括局域网)"
 
 #. label-option: General - m3uPathType
 #. label-option: General - epgPathType
@@ -51,7 +51,7 @@ msgstr "本地路径 (包括本地网络)"
 #. label-option: General - genresPathType
 msgctxt "#30002"
 msgid "Remote path (Internet address)"
-msgstr "远程路径 (互联网地址)"
+msgstr "远程路径 (网络地址)"
 
 #. label-option: General - m3uRefreshMode
 msgctxt "#30003"
@@ -61,7 +61,7 @@ msgstr "已禁用"
 #. label-option: General - m3uRefreshMode
 msgctxt "#30004"
 msgid "Repeated refresh"
-msgstr "重复刷新"
+msgstr "循环刷新"
 
 #. label-option: General - m3uRefreshMode
 msgctxt "#30005"
@@ -71,22 +71,22 @@ msgstr "每天一次"
 #. label-group: General - Providers
 msgctxt "#30006"
 msgid "Providers"
-msgstr "供应商"
+msgstr "服务商"
 
 #. label: Channels - defaultProviderName
 msgctxt "#30007"
 msgid "Default provider name"
-msgstr "默认提供商名称"
+msgstr "默认服务商名称"
 
 #. label: Channels - enableProviderMappings
 msgctxt "#30008"
 msgid "Enable provider mapping"
-msgstr "启用提供商映射"
+msgstr "启用服务商映射"
 
 #. label: Channels - providerMappingFile
 msgctxt "#30009"
 msgid "Provider name mapping file"
-msgstr "提供商名称映射文件"
+msgstr "服务商名称映射文件"
 
 #. label-category: general
 #. label-group: General - General
@@ -97,22 +97,22 @@ msgstr "常规"
 #. label: General - m3uPath
 msgctxt "#30011"
 msgid "M3U playlist path"
-msgstr "M3U播放列表路径"
+msgstr "M3U 播放列表路径"
 
 #. label: General - m3uUrl
 msgctxt "#30012"
 msgid "M3U playlist URL"
-msgstr "M3U播放列表URL"
+msgstr "M3U 播放列表网址"
 
 #. label: General - startNum
 msgctxt "#30013"
 msgid "Start channel number"
-msgstr "起始频道序号"
+msgstr "起始频道编号"
 
 #. label: General - numberByOrder
 msgctxt "#30014"
 msgid "Only number by channel order in M3U"
-msgstr "仅通过M3U顺序排列频道"
+msgstr "仅按 M3U 内顺序自动编排频道号"
 
 #. label: General - m3uRefreshMode
 msgctxt "#30015"
@@ -127,7 +127,7 @@ msgstr "刷新间隔"
 #. label: General - m3uRefreshHour
 msgctxt "#30017"
 msgid "Refresh hour (24h)"
-msgstr "刷新小时数 (24h)"
+msgstr "刷新小时数 (24 小时)"
 
 #. label-group: General - Refresh
 msgctxt "#30018"
@@ -137,12 +137,12 @@ msgstr "刷新"
 #. label-category: epgsettings
 msgctxt "#30019"
 msgid "EPG Settings"
-msgstr "电子节目单设置"
+msgstr "电子节目指南设置"
 
 #. label-group: EPG Settings - EPG Settings
 msgctxt "#30020"
 msgid "EPG"
-msgstr "电子节目单"
+msgstr "电子节目指南"
 
 #. label: EPG Settings - epgPath
 msgctxt "#30021"
@@ -152,27 +152,27 @@ msgstr "XMLTV 路径"
 #. label: EPG Settings - epgUrl
 msgctxt "#30022"
 msgid "XMLTV URL"
-msgstr "XMLTV URL"
+msgstr "XMLTV 网址"
 
 #. label: EPG Settings - epgTSOverride
 msgctxt "#30023"
 msgid "Apply time shift to all channels"
-msgstr "为所有频道使用时移"
+msgstr "为所有频道应用时移"
 
 #. label: EPG Settings - epgTimeShift
 msgctxt "#30024"
 msgid "EPG time shift"
-msgstr "电子节目单时移"
+msgstr "电子节目指南时间偏移量"
 
 #. label: General - m3uCache
 msgctxt "#30025"
 msgid "Cache m3u at local storage"
-msgstr "缓存 m3u 到本地储存"
+msgstr "缓存 m3u 到本地存储"
 
 #. label: EPG Settings - epgCache
 msgctxt "#30026"
 msgid "Cache XMLTV at local storage"
-msgstr "缓存 XMLTV 到本地储存"
+msgstr "缓存 XMLTV 到本地存储"
 
 #. format-label: EPG Settings - epgTimeShift
 msgctxt "#30027"
@@ -182,7 +182,7 @@ msgstr "{0:.1f} 小时"
 #. label: General - tvChannelGroupsOnly
 msgctxt "#30028"
 msgid "Only load TV channels in groups"
-msgstr "仅载入已分组的电视频道"
+msgstr "仅加载带分组标签的电视频道"
 
 #. label-group: General - TV Groups
 msgctxt "#30029"
@@ -193,17 +193,17 @@ msgstr "电视分组"
 #. label-group: Channel Logos - Channel Logos
 msgctxt "#30030"
 msgid "Channel Logos"
-msgstr "频道Logo"
+msgstr "频道台标"
 
 #. label: Channel Logos - logoPath
 msgctxt "#30031"
 msgid "Channel logos folder"
-msgstr "频道Logo文件夹"
+msgstr "频道台标文件夹路径"
 
 #. label: Channel Logos - logoBaseUrl
 msgctxt "#30032"
 msgid "Channel logos base URL"
-msgstr "频道Logo基URL"
+msgstr "频道台标根地址"
 
 #. label-group: General - Radio Groups
 msgctxt "#30033"
@@ -230,7 +230,7 @@ msgstr "全部分组"
 #. label-option: Channels - radioGroupGode
 msgctxt "#30037"
 msgid "Some groups"
-msgstr "其他分组"
+msgstr "指定分组"
 
 #. label-option: General - tvGroupMode
 #. label-option: General - radioGroupGode
@@ -246,12 +246,12 @@ msgstr "电视分组数量"
 #. label-group: Channel Logos - XMLTV Logos Options
 msgctxt "#30040"
 msgid "XMLTV Logos Options"
-msgstr "XMLTV 图标选项"
+msgstr "XMLTV 台标选项"
 
 #. label: Channel Logos - logoFromEpg
 msgctxt "#30041"
 msgid "Channels logos from XMLTV"
-msgstr "从XMLTV导入频道图标"
+msgstr "从 XMLTV 导入频道台标"
 
 #. label-option: Channel Logos - logoFromEpg
 msgctxt "#30042"
@@ -271,27 +271,27 @@ msgstr "首选 XMLTV"
 #. label: General - oneTvGroup
 msgctxt "#30045"
 msgid "TV group 1"
-msgstr "电视组1"
+msgstr "电视组 1"
 
 #. label: General - twoTvGroup
 msgctxt "#30046"
 msgid "TV group 2"
-msgstr "电视组2"
+msgstr "电视组 2"
 
 #. label: General - threeTvGroup
 msgctxt "#30047"
 msgid "TV group 3"
-msgstr "电视组3"
+msgstr "电视组 3"
 
 #. label: General - fourTvGroup
 msgctxt "#30048"
 msgid "TV group 4"
-msgstr "电视组4"
+msgstr "电视组 4"
 
 #. label: General - fiveTvGroup
 msgctxt "#30049"
 msgid "TV group 5"
-msgstr "电视组5"
+msgstr "电视组 5"
 
 #. label-category: genres
 #. label-group: Genres - Genres
@@ -302,7 +302,7 @@ msgstr "节目类型"
 #. label: Genres - useEpgGenreText
 msgctxt "#30051"
 msgid "Use genre text from XMLTV when mapping genres"
-msgstr "若映射了节目类型则使用XMLTV中的节目类型文本"
+msgstr "类型映射时使用 XMLTV 原生节目类型名称"
 
 #. label: Genres - genresPath
 msgctxt "#30052"
@@ -312,7 +312,7 @@ msgstr "节目类型路径"
 #. label: Genres - genresUrl
 msgctxt "#30053"
 msgid "Genres URL"
-msgstr "节目类型URL"
+msgstr "节目类型网址"
 
 #. label: Channels - customTvGroupsFile
 msgctxt "#30054"
@@ -322,27 +322,27 @@ msgstr "自定义电视分组文件"
 #. label: General - oneRadioGroup
 msgctxt "#30055"
 msgid "Radio group 1"
-msgstr "广播组1"
+msgstr "广播组 1"
 
 #. label: General - twoRadioGroup
 msgctxt "#30056"
 msgid "Radio group 2"
-msgstr "广播组2"
+msgstr "广播组 2"
 
 #. label: General - threeRadioGroup
 msgctxt "#30057"
 msgid "Radio group 3"
-msgstr "广播组3"
+msgstr "广播组 3"
 
 #. label: General - fourRadioGroup
 msgctxt "#30058"
 msgid "Radio group 4"
-msgstr "广播组4"
+msgstr "广播组 4"
 
 #. label: General - fiveRadioGroup
 msgctxt "#30059"
 msgid "Radio group 5"
-msgstr "广播组5"
+msgstr "广播组 5"
 
 #. label-category: advanced
 msgctxt "#30060"
@@ -352,17 +352,17 @@ msgstr "高级"
 #. label-group: Advanced - Multicast relay
 msgctxt "#30061"
 msgid "Multicast relay (udpxy)"
-msgstr "多播中继 (udpxy)"
+msgstr "组播中继 (udpxy)"
 
 #. label: Advanced - transformMulticastStreamUrls
 msgctxt "#30062"
 msgid "Transform multicast stream URLs"
-msgstr "传输多播流URL"
+msgstr "转换组播流网址"
 
 #. label: Advanced - udpxyHost
 msgctxt "#30063"
 msgid "Relay hostname or IP address"
-msgstr "中继主机名或IP地址"
+msgstr "中继主机名或 IP 地址"
 
 #. label: Advanced - udpxyPort
 msgctxt "#30064"
@@ -382,7 +382,7 @@ msgstr "为 m3u8 (HLS) 流启用 inputstream.adaptive"
 #. label: Advanced - useFFmpegReconnect
 msgctxt "#30067"
 msgid "Use FFmpeg http reconnect options if possible"
-msgstr "尽可能使用 FFmepg http 重连选项"
+msgstr "尽可能使用 FFmpeg HTTP 重连选项"
 
 #. label: Advanced - defaultUserAgent
 msgctxt "#30068"
@@ -397,7 +397,7 @@ msgstr "输入流名称"
 #. label: Advanced - defaultMimeType
 msgctxt "#30070"
 msgid "MIME type"
-msgstr "MIME类型"
+msgstr "MIME 类型"
 
 #. label-group: Advanced - Channel defaults
 msgctxt "#30071"
@@ -407,32 +407,32 @@ msgstr "频道默认选项"
 #. label: General - numRadioGroups
 msgctxt "#30072"
 msgid "Number of Radio groups"
-msgstr "广播组数量"
+msgstr "广播分组数量"
 
 #. label: Channels - customRadioGroupsFile
 msgctxt "#30073"
 msgid "Custom Radio groups file"
-msgstr "自定义广播组文件"
+msgstr "自定义广播分组文件"
 
 #. label: General - radioChannelGroupsOnly
 msgctxt "#30074"
 msgid "Only load Radio channels in groups"
-msgstr "仅在组内导入广播频道"
+msgstr "仅加载分组内的广播频道"
 
 #. help: Channel Logos - useLogosLocalPathOnly
 msgctxt "#30075"
 msgid "For local logos path ignore M3U logos"
-msgstr "对于本地logo路径忽略 M3U logo"
+msgstr "使用本地台标路径时，忽略 M3U 内置台标地址"
 
 #. label-category: Groups
 msgctxt "#30076"
 msgid "Groups"
-msgstr "组"
+msgstr "分组"
 
 #. label: EPG Settings - epgIgnoreCaseForChannelIds
 msgctxt "#30077"
 msgid "Ignore Case for EPG Channel IDs"
-msgstr "忽略 EPG 频道 ID 的大小写"
+msgstr "电子节目指南频道 ID 匹配忽略大小写"
 
 # empty strings from id 30075 to 30099
 #. label-category: catchup
@@ -454,22 +454,22 @@ msgstr "请求格式字符串"
 #. label: Catchup - catchupDays
 msgctxt "#30103"
 msgid "Catchup window"
-msgstr "回放窗口时间"
+msgstr "回放窗口"
 
 #. label: Catchup - allChannelsCatchupMode
 msgctxt "#30104"
 msgid "Channels support catchup using mode"
-msgstr "所有频道支持的回放使用模式"
+msgstr "频道支持回放模式"
 
 #. label-group: Catchup - Watch From EPG
 msgctxt "#30105"
 msgid "Watch From EPG"
-msgstr "从电子节目单观看"
+msgstr "从电子节目指南观看"
 
 #. label: Catchup - catchupPlayEpgAsLive
 msgctxt "#30106"
 msgid "Play from EPG in Live TV mode (using timeshift)"
-msgstr "使用直播TV模式从电子节目单播放（使用时移）"
+msgstr "使用直播电视模式从电子节目指南播放（使用时移）"
 
 #. label: Catchup - catchupWatchEpgBeginBuffer
 msgctxt "#30107"
@@ -550,7 +550,7 @@ msgstr "启用时移"
 #. label: Timeshift - timeshiftEnabledHttp
 msgctxt "#30122"
 msgid "Enable timeshift for HTTP based streams"
-msgstr "为基于HTTP的流启用时移"
+msgstr "为基于 HTTP 的流启用时移"
 
 #. label: Timeshift - timeshiftFFmpegdirectSettings
 msgctxt "#30123"
@@ -575,7 +575,7 @@ msgstr "为所有流启用时移"
 #. label: Timeshift - timeshiftEnabledUdp
 msgctxt "#30127"
 msgid "Enable timeshift for UDP based streams"
-msgstr "为基于UDP的流启用时移"
+msgstr "为基于 UDP 的流启用时移"
 
 #. label-option: Catchup - catchupCorrection
 msgctxt "#30128"
@@ -602,22 +602,22 @@ msgstr "按季分组"
 #. label: Media - mediaBySeasonEpisode
 msgctxt "#30153"
 msgid "Include season and episode number in title"
-msgstr "在标题中包含季和集"
+msgstr "在标题中包含季数和集数"
 
 #. label: Media - mediaVODAsRecordings
 msgctxt "#30154"
 msgid "Include VODs as media"
-msgstr "将 VOD 包含在媒体中"
+msgstr "将点播资源纳入媒体库"
 
 #. label: Media - mediaEnabled
 msgctxt "#30155"
 msgid "Show Media as recordings"
-msgstr "将媒体显示为录音"
+msgstr "媒体资源显示为录制节目"
 
 #. label: Media - mediaUseM3UGroupForGrouping
 msgctxt "#30156"
 msgid "Use M3U Group name in path"
-msgstr "在路径中使用 M3U 组名"
+msgstr "路径中携带 M3U 分组名称"
 
 #. label-option: Media - mediaEnabled - IGNORE_GROUP_NAME
 msgctxt "#30157"
@@ -632,12 +632,12 @@ msgstr "始终追加"
 #. label-option: Media - mediaEnabled - ONLY_IF_EMPTY
 msgctxt "#30159"
 msgid "When no media-dir is present"
-msgstr "当媒体目录不存在"
+msgstr "当无媒体目录时"
 
 #. label: Media - mediaForcePlaylist
 msgctxt "#30160"
 msgid "Force all M3U entries to be media"
-msgstr "强制所有 M3U 条目视为媒体"
+msgstr "强制全部 M3U 条目识别为媒体资源"
 
 # empty strings from id 30128 to 30449
 #. label: TV
@@ -654,7 +654,7 @@ msgstr "广播"
 #. notification: Inputstreams
 msgctxt "#30500"
 msgid "Inputstream error"
-msgstr "输入流错误"
+msgstr "输入流异常"
 
 #. notification: Inputstreams
 msgctxt "#30501"
@@ -689,7 +689,7 @@ msgstr "如果位置为 [B]本地路径[/B]，那么此设置必须包含有效�
 #. help: General - m3uUrl
 msgctxt "#30603"
 msgid "If location is [B]Remote path[/B] this setting must contain a valid URL for the addon to function."
-msgstr "如果位置为 [B]远程路径[/B]，那么此设置必须包含有效的URL路径插件才会生效。"
+msgstr "如果位置为 [B]远程路径[/B]，那么此设置必须包含有效的网址路径插件才会生效。"
 
 #. help: General - m3uCache
 msgctxt "#30604"
@@ -724,12 +724,12 @@ msgstr "若自动刷新模式为 [B]每天一次[/B] 每天到此时将刷新文
 #. help: General - tvChannelGroupsOnly
 msgctxt "#30610"
 msgid "Only TV channels that belong to groups (i.e. have a [B]group-title[/B] attribute) will be loaded from the M3U file."
-msgstr "M3U文件中只有属于组（即拥有 [B]group-title[/B] 属性）的电视频道才会被载入。"
+msgstr "M3U 文件中只有属于分组（即拥有 [B]group-title[/B] 属性）的电视频道才会被载入。"
 
 #. help: Channels - tvGroupMode
 msgctxt "#30611"
 msgid "Choose from one of the following three modes: [B]All groups[/B] Load all TV groups from the M3U file; [B]Some groups[/B] Only load the groups specified in the next options; [B]Custom groups[/B] Load a set of groups from the M3U file whose names are loaded from an XML file."
-msgstr "从以下三种模式中选择一种：[B]所有分组[/B] 载入M3U文件中所有的电视分组；[B]部分分组[/B] 仅加载下一个选项中的指定的分组；[B]自定义分组[/B] 从包含有组名称的 XML 文件中加载一组分组。"
+msgstr "从以下三种模式中选择一种：[B]所有分组[/B] 载入 M3U 文件中所有的电视分组；[B]指定分组[/B] 仅加载下一个选项中的指定的分组；[B]自定义分组[/B] 从包含有分组名称的 XML 文件中加载一组分组。"
 
 #. help: Channels - oneTvGroup
 #. help: Channels - twoTvGroup
@@ -743,7 +743,7 @@ msgstr "若上一个选项设置为“部分分组”，则您需要指定要从
 #. help: Channels - radioGroupMode
 msgctxt "#30613"
 msgid "Choose from one of the following three modes: [B]All groups[/B] Load all Radio groups from the M3U file[/B]; [B]Some groups[/B] Only load the groups specified in the next options; [B]Custom groups[/B] Load a set of groups from the M3U file whose names are loaded from an XML file."
-msgstr "从以下三种模式中选择： [B]所有组[/B] 从 M3U 中加载所有电台组[/B]; [B]部分组[/B] 仅加载在自定义组中指定的组 [B]自定义组[/B] 从 M3U 加载组，这些组的名字从 XML 加载。"
+msgstr "从以下三种模式中选择： [B]所有分组[/B] 从 M3U 中加载所有电台分组[/B]; [B]指定分组[/B] 仅加载在自定义分组中指定的分组 [B]自定义分组[/B] 从 M3U 加载分组，这些分组的名字从 XML 加载。"
 
 #. help: Channels - oneRadioGroup
 #. help: Channels - twoRadioGroup
@@ -752,7 +752,7 @@ msgstr "从以下三种模式中选择： [B]所有组[/B] 从 M3U 中加载所�
 #. help: Channels - fiveRadioGroup
 msgctxt "#30614"
 msgid "If the previous option has been has been set to 'Some groups' you need to specify a Radio group to be fetched from the M3U file. Please not that this is the group name as shown on the group-title attribute (i.e. 'UK (Radio)'). This setting is case-sensitive."
-msgstr "如果前面的选项设置为“部分组”，您需要指定一个从 M3U 文件中提取的广播组。请注意，这个是组标题属性所显示的组名 （如 'UK (Radio)'）。这个设定是大小写敏感的。"
+msgstr "如果前面的选项设置为“指定分组”，您需要指定一个从 M3U 文件中提取的广播分组。请注意，这个是分组标题属性所显示的组名 （如 'UK (Radio)'）。此设置区分大小写。"
 
 #. help: Channels - customTvGroupsFile
 msgctxt "#30615"
@@ -767,12 +767,12 @@ msgstr "加载自定义广播组的文件。缺省文件是 “customRadioGroups
 #. help: Channels - numTvGroups
 msgctxt "#30617"
 msgid "The number of TV groups to load when `Some groups` is the selected mode. Up to 5 can be chosen. If more than 5 are required the 'Custom groups' mode should be used instead."
-msgstr "如果选择了 “部分组” 模式，电视组的加载数量做多可以选 5 个。如果需要加载 5 个以上，需要选则 “自定义组” 模式。"
+msgstr "如果选择了 “指定分组” 模式，电视组的加载数量做多可以选 5 个。如果需要加载 5 个以上，需要选则 “自定义分组” 模式。"
 
 #. help: Channels - numRadioGroups
 msgctxt "#30618"
 msgid "The number of Radio groups to load when `Some groups` is the selected mode. Up to 5 can be chosen. If more than 5 are required the 'Custom groups'  mode should be used instead."
-msgstr "如果选择了 “部分组” 模式，电台组的加载数量做多可以选 5 个。如果需要加载 5 个以上，需要选则 “自定义组” 模式。"
+msgstr "如果选择了 “指定分组” 模式，电台组的加载数量做多可以选 5 个。如果需要加载 5 个以上，需要选则 “自定义分组” 模式。"
 
 #. help: General - radioChannelGroupsOnly
 msgctxt "#30619"
@@ -783,7 +783,7 @@ msgstr "只有属于组的电台频道 （如：有 [B]group-title[/B] 属性）
 #. help-category: EPG Settings
 msgctxt "#30620"
 msgid "Settings related to the EPG. Note that Kodi will only load the EPG data when it needs to. The add-on will force a load of the EPG data regardless of whether or not Kodi requests it if either catchup is enabled or XMLTV logos are required."
-msgstr "与电子节目单相关的设置。 注意 Kodi 只有在必要时才加载电子节目单数据。无论 Kodi 是否需要，如果开启了 catchup 或者需要 XMLTV logo，插件会强制加载电子节目单数据。"
+msgstr "与电子节目指南相关的设置。 注意 Kodi 只有在必要时才加载电子节目指南数据。无论 Kodi 是否需要，如果开启了 catchup 或者需要 XMLTV 台标，插件会强制加载电子节目指南数据。"
 
 #. help: EPG Settings - epgPathType
 msgctxt "#30621"
@@ -808,29 +808,29 @@ msgstr "若位置为 [B]远程路径[/B] 则选择是否将 XMLTV 文件缓存�
 #. help: EPG Settings - epgTimeShift
 msgctxt "#30625"
 msgid "Adjust the EPG times by this value, from -12 hours to +14 hours."
-msgstr "使用该值调整电子节目单时间，从 -12 小时到 +14 小时。"
+msgstr "使用该值调整电子节目指南时间，从 -12 小时到 +14 小时。"
 
 #. help: EPG Settings - epgTSOverside
 msgctxt "#30626"
 msgid "Whether or not to override the time shift for all channels with `EPG time shift`. If not enabled `EPG time shift` plus the individual time shift per channel (if available) will be used."
-msgstr "是否用`电子节目单时移`覆盖所有频道的时移。若未启用覆盖，则使用`电子节目单时移`加上每个频道单独的时移。"
+msgstr "是否用`电子节目指南时间偏移`覆盖所有频道的时移。若未启用覆盖，则使用`电子节目指南时间偏移`加上每个频道单独的时移。"
 
 #. help: EPG Settings - epgIgnoreCaseForChannelIds
 msgctxt "#30627"
 msgid "Ignore Case for EPG Channel IDs, also known as tvg-id's, when matching channels to EPG entries. If disabled, only case senitive matching will be used."
-msgstr "将频道与 EPG 条目匹配时，忽略 EPG 频道 ID（也称为 tvg-id）的大小写。如果禁用，则仅使用大小写敏感匹配。"
+msgstr "将频道与电子节目指南条目匹配时，忽略电子节目指南频道 ID（也称为 tvg-id）的大小写。如果禁用，则仅使用区分大小写匹配。"
 
 # empty strings from id 30627 to 30639
 #. help info - Channel Logos
 #. help-category: Channel Logos
 msgctxt "#30640"
 msgid "Settings related to Channel Logos."
-msgstr "与频道 Logo 相关的设置。"
+msgstr "与频道台标相关的设置。"
 
 #. help: Channel Logos - logoPathType
 msgctxt "#30641"
 msgid "Select where to find the channel logos. The options are: [B]Local path[/B] - A path to a folder whether it be on the device or the local network; [B]Remote path[/B] - A base URL specifying the location of the logos."
-msgstr "选择查找频道徽标的位置。选项如下：[B]本地路径[/B] - 指向文件夹的路径（无论是在设备上还是本地网络中）；[B]远程路径[/B] - 指定徽标位置的基础 URL。"
+msgstr "选择查找频道台标的位置。选项如下：[B]本地路径[/B] - 指向文件夹的路径（无论是在设备上还是本地网络中）；[B]远程路径[/B] - 指定台标位置的根地址。"
 
 #. help: Channel Logos - logo Path
 msgctxt "#30642"
@@ -840,17 +840,17 @@ msgstr "若位置是 [B]本地路径[/B] 则此设置项需要包含一个有效
 #. help: Channel Logos - logoBaseUrl
 msgctxt "#30643"
 msgid "If location is [B]Remote Path[/B] this setting should contain a valid base URL."
-msgstr "若位置是 [B]远程路径[/B] 则此设置项需要包含一个有效基础 URL。"
+msgstr "若位置是 [B]远程路径[/B] 则此设置项需要包含一个有效根地址。"
 
 #. help: Channel Logos - logoFromEpg
 msgctxt "#30644"
 msgid "Preference on how to handle channel logos. The options are: [B]Ignore[/B] - Don't use channel logos from an XMLTV file; [B]Prefer M3U[/B] - Use the channel logo from the M3U if available otherwise use the XMLTV logo; [B]Prefer XMLTV[/B] - Use the channel logo from the XMLTV file if available otherwise use the M3U logo."
-msgstr "处理频道徽标的首选项。选项如下：[B]忽略[/B] - 不使用 XMLTV 文件中的频道徽标；[B]优先使用 M3U[/B] - 若 M3U 中存在频道徽标则使用，否则使用 XMLTV 中的徽标；[B]优先使用 XMLTV[/B] - 若 XMLTV 文件中存在频道徽标则使用，否则使 用 M3U中的徽标。"
+msgstr "处理频道台标的首选项。选项如下：[B]忽略[/B] - 不使用 XMLTV 文件中的频道台标；[B]优先使用 M3U[/B] - 若 M3U 中存在频道台标则使用，否则使用 XMLTV 中的台标；[B]优先使用 XMLTV[/B] - 若 XMLTV 文件中存在频道台标则使用，否则使 用 M3U 中的台标。"
 
 #. help: Channel Logos - useLogosLocalPathOnly
 msgctxt "#30645"
 msgid "If a local path is selected for logos ignore any logos from the M3U file."
-msgstr "如果为 Logo 选择了本地路径则会忽略 M3U 文件中的任何 Logo。"
+msgstr "如果为台标选择了本地路径则会忽略 M3U 文件中的任何台标。"
 
 # empty strings from id 30645 to 30659
 #. help info - Genres
@@ -862,12 +862,12 @@ msgstr "与节目类型相关的设置。"
 #. help: Genres - useEpgGenreText
 msgctxt "#30661"
 msgid "If enabled, and a genre mapping file is used to get a genre type and sub type use the EPG's genre text (i.e. 'category' text) for the genre instead of the kodi default text."
-msgstr "如果启用此功能，并且使用类型映射文件来获取类型和子类型，则使用EPG的类型文本（即“类别”文本）作为类型，而非Kodi默认文本。"
+msgstr "如果启用此功能，并且使用类型映射文件来获取类型和子类型，则使用电子节目指南的类型文本（即“类别”文本）作为类型，而非 Kodi 默认文本。"
 
 #. help: Genres - genresPathType
 msgctxt "#30662"
 msgid "Select where to find the genres XML resource. The options are: [B]Local path[/B] - A path to a genres XML file whether it be on the device or the local network; [B]Remote path[/B] - A URL specifying the location of the genres XML file."
-msgstr "请选择查找分类信息 XML 资源的位置。选项如下：[B]本地路径[/B] - 指向分类信息 XML 文件的路径，该文件可位于设备上或本地网络中；[B]远程路径[/B] - 指定分类信息 XML 文件位置的 URL。"
+msgstr "请选择查找分类信息 XML 资源的位置。选项如下：[B]本地路径[/B] - 指向分类信息 XML 文件的路径，该文件可位于设备上或本地网络中；[B]远程路径[/B] - 指定分类信息 XML 文件位置的网址。"
 
 #. help: Genres - genresPath
 msgctxt "#30663"
@@ -877,29 +877,29 @@ msgstr "若位置是 [B]本地路径[/B] 则此设置项需要包含一个有效
 #. help: Genres - genresUrl
 msgctxt "#30664"
 msgid "If location is [B]Remote Path[/B] this setting should contain a valid URL."
-msgstr "若位置是 [B]远程路径[/B] 则此设置项需要包含一个有效 URL。"
+msgstr "若位置是 [B]远程路径[/B] 则此设置项需要包含一个有效网址。"
 
 # empty strings from id 30665 to 30679
 #. help info - Advanced
 #. help-category: Advanced
 msgctxt "#30680"
 msgid "Advanced settings including multicast relays, streaming properties etc."
-msgstr "高级设置，包括多播中继、流媒体属性等。"
+msgstr "高级设置，包括组播中继、流媒体属性等。"
 
 #. help: Advanced - transformMulticastStreamUrls
 msgctxt "#30681"
 msgid "Multicast (UDP/RTP) streams do not work well on Wifi networks. A multicast relay can convert the stream from UDP/RTP multicast to HTTP. Enabling this option will transform multicast stream URLs from the M3U file to HTTP addresses so they can be accesssed via a 'udpxy' relay on the local network. E.g. a UDP multicast stream URL like 'udp://@239.239.3.38:5239' would get transformed to something like 'http://192.168.1.1:4000/udp/239.239.3.38:5239'."
-msgstr "多播（UDP/RTP）流在无线网络（Wifi）中表现不佳。多播中继可将 UDP/RTP 多播流转换为 HTTP 流。启用此选项后，M3U 文件中的多播流 URL 将转换为 HTTP 地址，以便通过本地网络中的 “udpxy” 中继进行访问。例如，像 “udp://@239.239.3.38:5239” 这样的 UDP 多播流 URL，会被转换为类似 “http://192.168.1.1:4000/udp/239.239.3.38:5239” 的地址。"
+msgstr "组播（UDP/RTP）流在无线网络（Wifi）中表现不佳。组播中继可将 UDP/RTP 组播流转换为 HTTP 流。启用此选项后，M3U 文件中的组播流 URL 将转换为 HTTP 地址，以便通过本地网络中的 “udpxy” 中继进行访问。例如，像 “udp://@239.239.3.38:5239” 这样的 UDP 组播流 URL，会被转换为类似 “http://192.168.1.1:4000/udp/239.239.3.38:5239” 的地址。"
 
 #. help: Advanced - udpxyHost
 msgctxt "#30682"
 msgid "The hostname or ip address of the multicast relay (udpxy) on the local network."
-msgstr "本地网络中多播中继（udpxy）的主机名或 IP 地址。"
+msgstr "本地网络中组播中继（udpxy）的主机名或 IP 地址。"
 
 #. help: Advanced - udpxyPort
 msgctxt "#30683"
 msgid "The port of the multicast relay (udpxy) on the local network."
-msgstr "本地网络中多播中继（udpxy）的端口。"
+msgstr "本地网络中组播中继（udpxy）的端口。"
 
 #. help: Advanced - useInputstreamAdaptiveforHls
 msgctxt "#30684"
@@ -941,7 +941,7 @@ msgstr "如果您的 M3U 列表中有支持回放功能的频道，应启用此�
 #. help: Catchup - catchupQueryFormat
 msgctxt "#30702"
 msgid "A query format string (provider dependent) allowing timestamp information to be appended to a URL to denote when to catchup from. E.g. `&cutv={Y}-{m}-{d}T{H}:{M}:{S}`, which allows year, month, day, hour minute and second to be inserted to give: `&cutv=2019-11-26T22:00:32`. If the M3U entry using has a catchup mode of 'default' or 'append' and a 'catchup-source' tag is provided in the M3U entry this setting will be ignored."
-msgstr "一个查询格式字符串（取决于服务提供商），用于在 URL 后附加时间戳信息，以指定回放的起始时间。例如，&cutv={Y}-{m}-{d}T{H}:{M}:{S} 可插入年、月、日、时、分、秒，生成类似 &cutv=2019-11-26T22:00:32 的字符串。如果 M3U 条目的回放模式为 “default”（默认）或 “append”（附加），且该 M3U 条目中提供了 “catchup-source” 标签，则此设置将被忽略。"
+msgstr "一个查询格式字符串（取决于服务商），用于在 URL 后附加时间戳信息，以指定回放的起始时间。例如，&cutv={Y}-{m}-{d}T{H}:{M}:{S} 可插入年、月、日、时、分、秒，生成类似 &cutv=2019-11-26T22:00:32 的字符串。如果 M3U 条目的回放模式为 “default”（默认）或 “append”（附加），且该 M3U 条目中提供了 “catchup-source” 标签，则此设置将被忽略。"
 
 #. help: Catchup - catchupDays
 msgctxt "#30703"
@@ -951,7 +951,7 @@ msgstr "可回放过去的天数（在该天数范围内可回看节目）。可
 #. help: Catchup - allChannelsCatchupMode
 msgctxt "#30704"
 msgid "If enabled it is assumed that channels support catchup using the selected catchup mode while also obeying the override mode. If required the 'Query format string' and 'Catchup window' number of days will come from the addon settings. If this option is disabled then an M3U entry must have at least a 'catchup=' tag to enable catchup. The options for how to build the catch URL are: [B]Disabled[/B] - Do not assume all channel support catchup; [B]Default[/B] - Use catchup source as the full catchup URL, if there is no catchup source use Append mode; [B]Append[/B] - Append the catchup source to the channel URL, if there is no catchup source using the 'Query format string'; [B]Shift (SIPTV)[/B] - Append the standard SIPTV catchup string to the channel URL; [B]Flussonic[/B] - Build a flussonic URL from the channel URL; [B]Xtream codes[/B] - Build an Xtream codes URL from the channel URL."
-msgstr "如果启用此功能，系统将假定频道支持使用所选回看模式进行回看，同时遵循覆盖模式。如有需要，“查询格式字符串”和“回看窗口”天数将来自插件设置。如果禁用此功能，则 M3U 条目必须至少包含 “catchup=” 标签才能启用回看。构建回看 URL 的选项如下：[B]禁用[/B] - 不假定所有频道支持回看；[B]默认[/B] - 使用回看源作为完整回看 URL，若无回看源则使用追加模式；[B]追加[/B] - 将回看源追加到频道 URL 后，若无回看源则使用“查询格式字符串”；[B]Shift (SIPTV)[/B] - 向频道 URL 追加标准 SIPTV 回看字符串；[B]Flussonic[/B] - 从频道 URL 构建 Flussonic 格式的URL；[B]Xtream codes[/B] - 从频道 URL 构建 Xtream codes 格式的 URL。"
+msgstr "如果启用此功能，系统将假定频道支持使用所选回看模式进行回看，同时遵循覆盖模式。如有需要，“查询格式字符串”和“回看窗口”天数将来自插件设置。如果禁用此功能，则 M3U 条目必须至少包含 “catchup=” 标签才能启用回看。构建回看网址的选项如下：[B]禁用[/B] - 不假定所有频道支持回看；[B]默认[/B] - 使用回看源作为完整回看网址，若无回看源则使用追加模式；[B]追加[/B] - 将回看源追加到频道网址后，若无回看源则使用“查询格式字符串”；[B]Shift (SIPTV)[/B] - 向频道网址追加标准 SIPTV 回看字符串；[B]Flussonic[/B] - 从频道网址构建 Flussonic 格式的网址；[B]Xtream codes[/B] - 从频道网址构建 Xtream codes 格式的网址。"
 
 #. help: Catchup - catchupPlayEpgAsLive
 msgctxt "#30705"
@@ -961,12 +961,12 @@ msgstr "禁用此功能时，任何过去的回看节目将按视频格式播放
 #. help: Catchup - catchupWatchEpgBeginBuffer
 msgctxt "#30706"
 msgid "The amount of buffer to give before the playback start point of an EPG entry that will be watched as a video."
-msgstr "作为视频播放的 EPG 条目在其播放开始点之前预缓冲的时间量。"
+msgstr "作为视频播放的电子节目指南条目在其播放开始点之前预缓冲的时间量。"
 
 #. help: Catchup - catchupWatchEpgEndBuffer
 msgctxt "#30707"
 msgid "The amount of buffer to give after the playback end point of an EPG entry that will be watched as a video."
-msgstr "作为视频播放的 EPG 条目在其播放结束点之后延续缓冲的时间量。"
+msgstr "作为视频播放的电子节目指南条目在其播放结束点之后延续缓冲的时间量。"
 
 #. help: Catchup - catchupOnlyOnFinishedProgrammes
 msgctxt "#30708"
@@ -981,7 +981,7 @@ msgstr "设置回看模式覆盖的范围。选项如下：[B]无回看模式[/B
 #. help: Catchup - catchupCorrection
 msgctxt "#30710"
 msgid "Adjust the time used for catchup stream URL generation by this value, from -12 hours to +14 hours. Useful for catchup streams which are geo mis-matched to the wrong time. Note that this value can be overridden by values in the M3U file."
-msgstr "按此值调整回看流 URL 生成时使用的时间（范围：-12 小时至 +14 小时）。适用于因地理位置导致时间不匹配的回看流场景。请注意，此值可被 M3U 文件中的设置覆盖。"
+msgstr "按此值调整回看流网址生成时使用的时间（范围：-12 小时至 +14 小时）。适用于因地理位置导致时间不匹配的回看流场景。请注意，此值可被 M3U 文件中的设置覆盖。"
 
 # empty strings from id 30710 to 307019
 #. help info - Timeshift
@@ -1025,17 +1025,17 @@ msgstr "为基于 UDP 的流启用时移功能。此设置仅适用于未为播�
 #. help: General - defaultproviderName
 msgctxt "#30740"
 msgid "If provided this value will be used as the provider name if one was not provided in the M3U. It can be used in combination with the provider mapping file which can supply type, icon path, country and language fields."
-msgstr "如果提供此值，当 M3U 中未指定提供商名称时，该值将用作提供商名称。此功能可与提供商映射文件结合使用，该文件可提供类型、图标路径、国家和语言等字段。"
+msgstr "如果提供此值，当 M3U 中未指定服务商名称时，该值将用作服务商名称。此功能可与服务商映射文件结合使用，该文件可提供类型、图标路径、国家/地区和语言等字段。"
 
 #. help: General - enableProviderMappings
 msgctxt "#30741"
 msgid "If enabled any provider name read from the M3U or the default provider name will be used to read further metadata from the mapping file. The metadata includes custom name, type, icon path, country and language."
-msgstr "如果启用此功能，从 M3U 读取的任何提供商名称或默认提供商名称将用于从映射文件中读取更多元数据。元数据包括自定义名称、类型、图标路径、国家和语言。"
+msgstr "如果启用此功能，从 M3U 读取的任何服务商名称或默认服务商名称将用于从映射文件中读取更多元数据。元数据包括自定义名称、类型、图标路径、国家/地区和语言。"
 
 #. help: General - providerMappingFile
 msgctxt "#30742"
 msgid "The config file to map provider names received from the M3U or the default provider name to custom name, icons etc. The default file is [I]providerMappings.xml[/I]."
-msgstr "用于将从 M3U 接收的提供商名称或默认提供商名称映射到自定义名称、图标等信息的配置文件。默认文件为[I]providerMappings.xml[/I]。"
+msgstr "用于将从 M3U 接收的提供商名称或默认提供商名称映射到自定义名称、图标等信息的配置文件。默认文件为 [I]providerMappings.xml[/I]。"
 
 #. help: Groups - groups
 msgctxt "#30743"
@@ -1072,7 +1072,7 @@ msgstr "如果启用此功能，则将视频点播（VOD）显示为录制内容
 #. label: Media - mediaEnabled
 msgctxt "#30805"
 msgid "If enabled, all IPTV media entries can be shown as PVR recordings. Otherwise, they appear as regular PVR channels."
-msgstr "如果启用，所有 IPTV 媒体条目将显示 为 P VR 录制内容。否则，它们将显示为常规 PVR 频道。"
+msgstr "如果启用，所有 IPTV 媒体条目将显示 为 PVR 录制内容。否则，它们将显示为常规 PVR 频道。"
 
 #. label: Media - mediaM3UGroupPath
 msgctxt "#30806"
