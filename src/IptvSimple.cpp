@@ -35,6 +35,28 @@ IptvSimple::IptvSimple(const kodi::addon::IInstanceInfo& instance) : iptvsimple:
 IptvSimple::~IptvSimple()
 {
   Logger::Log(LEVEL_DEBUG, "%s Stopping update thread...", __FUNCTION__);
+
+  // Stop connectionManager FIRST, before touching
+  // m_thread/m_channels/m_epg. It can call back into
+  // ConnectionEstablished()/ConnectionLost() on its own thread at any time
+  // up until Stop() returns, and neither of those callbacks takes m_mutex -
+  // ConnectionEstablished() in particular does an unsynchronized
+  // read-modify-write of m_thread (`m_thread = std::thread(...)`). The
+  // original order joined m_thread first and stopped connectionManager
+  // last, leaving a window where ConnectionEstablished() could still be
+  // mid-assignment to m_thread while this destructor read/joined it -
+  // confirmed live via a coredump: std::terminate() inside this destructor
+  // (IptvSimpleD2Ev/D0Ev) with ConnectionEstablished's "Starting separate
+  // client update thread..." log line landing at the same timestamp.
+  // Reproduced reliably with catchupEnabled=true (EPG load does more work
+  // per entry, shifting timing enough to hit the race) but the race itself
+  // is timing-dependent, not catchup-specific - Stop() joining its own
+  // thread before returning is what actually closes the window.
+  if (connectionManager)
+    connectionManager->Stop();
+  delete connectionManager;
+  connectionManager = nullptr;
+
   m_running = false;
   if (m_thread.joinable())
     m_thread.join();
@@ -44,10 +66,6 @@ IptvSimple::~IptvSimple()
   m_channelGroups.Clear();
   m_providers.Clear();
   m_epg.Clear();
-
-  if (connectionManager)
-    connectionManager->Stop();
-  delete connectionManager;
 }
 
 /* **************************************************************************
