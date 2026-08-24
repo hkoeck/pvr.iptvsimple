@@ -79,6 +79,20 @@ void IptvSimple::ConnectionLost()
 
 void IptvSimple::ConnectionEstablished()
 {
+  // GetChannels()/GetEPGForChannel()/etc all lock
+  // m_mutex before reading m_channels/m_epg (see e.g. GetChannels() a few
+  // lines below), but this function previously wrote to those same members
+  // - and to m_thread - with no lock at all. Kodi core calls GetChannels()
+  // once during PVR manager startup; if that call raced this still-running
+  // load, it could see m_channels mid-Init()/before LoadPlayList()
+  // populated it - confirmed live: "LoadPlayList - Loaded 313 channels."
+  // logged successfully, but PVR.GetChannels via JSON-RPC returned 0 with
+  // an empty (but present) channel group, immediately after a clean
+  // startup with no crash. Same missing-synchronization class as the
+  // destructor/m_thread race fixed above, just surfacing as silent data
+  // loss instead of a crash this time.
+  std::lock_guard<std::mutex> lock(m_mutex);
+
   m_channels.Init();
   m_channelGroups.Init();
   m_providers.Init();
