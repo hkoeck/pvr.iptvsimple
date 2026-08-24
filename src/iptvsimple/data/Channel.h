@@ -25,7 +25,12 @@ namespace iptvsimple
     FLUSSONIC,
     XTREAM_CODES,
     TIMESHIFT, // Obsolete but still used by some providers, predates SHIFT
-    VOD
+    VOD,
+    RESOLVER // catchup-source is a resolver endpoint, fetched at playback
+             // time and returning stream property overrides rather than a
+             // directly playable URL - see FetchCatchupSourceOverrides() in
+             // IptvSimple.cpp. Appended last to keep existing enum ordinals
+             // (persisted in addon settings as a plain integer) stable.
   };
 
   constexpr int IGNORE_CATCHUP_DAYS = -1;
