@@ -97,7 +97,21 @@ void IptvSimple::ConnectionEstablished()
   m_channelGroups.Init();
   m_providers.Init();
   m_playlistLoader.Init();
-  if (!m_playlistLoader.LoadPlayList())
+  if (m_playlistLoader.LoadPlayList())
+  {
+    // LoadPlayList() only fills our own in-memory channel/group/provider lists;
+    // Kodi core must be told to re-pull them, same as ReloadPlayList() already
+    // does on its periodic timer. Without this, a startup GetChannels() call
+    // from core can race this still-running load (Start() is async) and get a
+    // safe-but-empty result with nothing to trigger a retry. This addon
+    // supports recordings (catch-up), so TriggerRecordingUpdate() is needed
+    // too, same as ReloadPlayList().
+    TriggerChannelUpdate();
+    TriggerChannelGroupsUpdate();
+    TriggerProvidersUpdate();
+    TriggerRecordingUpdate();
+  }
+  else
   {
     m_channels.ChannelsLoadFailed();
     m_channelGroups.ChannelGroupsLoadFailed();
