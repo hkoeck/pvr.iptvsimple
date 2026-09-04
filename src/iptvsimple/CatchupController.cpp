@@ -67,6 +67,17 @@ void CatchupController::ProcessChannelForPlayback(const Channel& channel, std::m
     }
   }
 
+  // Consume the carry-over flag exactly once here, regardless of
+  // m_controlsLiveStream - the line below (inside the m_controlsLiveStream
+  // block) only ever reset it for channels with their own live timeshift
+  // buffer; a RESOLVER/VOD-catchup channel (m_controlsLiveStream == false)
+  // never reached it, so the flag stayed stuck "true" forever after the
+  // first EPG-tag catchup play. Confirmed live: a subsequent plain channel
+  // switch (Player.Open with channelid, no EPG tag involved) kept serving
+  // the old catchup begin/end window from GetCatchupUrl() instead of a true
+  // live stream, because the reset block above (lines 44-68) was skipped.
+  m_fromTimeshiftedEpgTagCall = false;
+
   if (m_controlsLiveStream)
   {
     if (m_resetCatchupState)
@@ -196,6 +207,17 @@ void CatchupController::ProcessEPGTagForVideoPlayback(const kodi::addon::PVREPGT
   if (m_catchupStartTime > 0)
     m_playbackIsVideo = true;
 
+  // Correctly 'false' (reverted a wrong 2026-09-04 attempt to set this
+  // true): unlike ProcessEPGTagForTimeshiftedPlayback() (the "as live" path,
+  // catchupPlayEpgAsLive=true), this function only ever runs when
+  // CatchupPlayEpgAsLive() is false - and in that mode Kodi opens the item
+  // via "pvr://guide/.../<time>.epg" (confirmed live), NOT the channel path,
+  // so GetChannelStreamProperties() is never called as a follow-up here at
+  // all. Setting this true had no protective effect (nothing to protect
+  // against) and only left it stuck true forever, since nothing but
+  // ProcessChannelForPlayback() ever clears it - confirmed live: a
+  // subsequent plain channel switch (Player.Open channelid, no EPG tag)
+  // then wrongly kept serving this stale catch-up window as if it were live.
   m_fromTimeshiftedEpgTagCall = false;
 }
 
