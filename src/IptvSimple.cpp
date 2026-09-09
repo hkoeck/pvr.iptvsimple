@@ -492,6 +492,24 @@ PVR_ERROR IptvSimple::GetEPGTagStreamProperties(const kodi::addon::PVREPGTag& ta
 
 PVR_ERROR IptvSimple::IsEPGTagPlayable(const kodi::addon::PVREPGTag& tag, bool& bIsPlayable)
 {
+  // infra#359: Kodi core has no per-tag "user opened this EPG entry's info
+  // dialog" hook available to addons - the closest thing Kodi core actually
+  // calls per-tag is this method, fired continuously for every visible EPG
+  // grid cell. Piggyback a lazy synopsis fetch on it: cheap to check (a
+  // std::unordered_set lookup), and the real fetch only ever happens once
+  // per series-id per addon session (Epg::RequestPlotFetch de-dupes).
+  // Deliberately placed before the catchup-enabled gate below so synopsis
+  // fetching doesn't depend on catchup being configured at all.
+  if (tag.GetPlot().empty() && !tag.GetSeriesLink().empty())
+  {
+    Channel plotChannel{m_settings};
+    if (GetChannel(static_cast<int>(tag.GetUniqueChannelId()), plotChannel))
+    {
+      m_epg.RequestPlotFetch(tag.GetSeriesLink(), tag.GetUniqueChannelId(),
+                             plotChannel.GetCatchupSource());
+    }
+  }
+
   if (!m_settings->IsCatchupEnabled())
     return PVR_ERROR_NOT_IMPLEMENTED;
 
