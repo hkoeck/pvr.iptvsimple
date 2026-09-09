@@ -189,13 +189,32 @@ void IptvSimple::ConnectionEstablished()
 
   m_running = true;
   m_thread = std::thread([&] { Process(); });
+
+  {
+    std::lock_guard<std::mutex> connLock(m_connectionMutex);
+    m_connectionResolved = true;
+  }
+  m_connectionCv.notify_all();
 }
 
 bool IptvSimple::Initialise()
 {
-  std::lock_guard<std::mutex> lock(m_mutex);
+  {
+    std::lock_guard<std::mutex> lock(m_mutex);
+    connectionManager->Start();
+  }
 
-  connectionManager->Start();
+  // infra#358: wait for the first ConnectionEstablished() (bounded, so a
+  // genuinely unreachable source doesn't hang Kodi startup) instead of
+  // returning immediately - Kodi core calls GetChannels()/GetEPGForChannel()
+  // right after this returns, and m_channels/m_epg are otherwise still empty
+  // at that point since connectionManager->Start() only just spawned its
+  // background thread. TriggerChannelUpdate() et al in ConnectionEstablished()
+  // patch this up asynchronously after the fact, which is exactly the race
+  // that still showed up intermittently - this makes the common fast-success
+  // case deterministic instead of relying on that trigger landing in time.
+  std::unique_lock<std::mutex> connLock(m_connectionMutex);
+  m_connectionCv.wait_for(connLock, std::chrono::seconds(15), [this] { return m_connectionResolved; });
 
   return true;
 }

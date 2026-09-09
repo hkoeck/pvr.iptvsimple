@@ -19,6 +19,7 @@
 #include "iptvsimple/data/Channel.h"
 
 #include <atomic>
+#include <condition_variable>
 #include <mutex>
 #include <thread>
 #include <vector>
@@ -111,4 +112,14 @@ private:
   std::thread m_thread;
   std::mutex m_mutex;
   std::atomic_bool m_reloadChannelsGroupsAndEPG{false};
+
+  // infra#358: lets Initialise() block until the first ConnectionEstablished()
+  // has actually populated m_channels/m_epg, instead of returning immediately
+  // and racing Kodi core's own first GetChannels()/GetEPGForChannel() call
+  // against connectionManager's background thread. Separate from m_mutex -
+  // ConnectionEstablished() needs to take m_mutex itself to do its work, so
+  // Initialise() must not hold it while waiting.
+  std::mutex m_connectionMutex;
+  std::condition_variable m_connectionCv;
+  bool m_connectionResolved = false;
 };
