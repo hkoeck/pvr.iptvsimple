@@ -74,6 +74,13 @@ ADDON_STATUS CIptvSimpleAddon::CreateInstance(const kodi::addon::IInstanceInfo& 
       // Initial client operated on old/incomplete settings
       delete usedInstance;
       usedInstance = new IptvSimple(instance);
+      // The re-created instance is the one Kodi keeps, so it needs the same start-up:
+      // without Initialise() its connection manager never runs and Kodi gets 0 channels.
+      if (!usedInstance->Initialise())
+      {
+        delete usedInstance;
+        return ADDON_STATUS_PERMANENT_FAILURE;
+      }
     }
     hdl = usedInstance;
 
