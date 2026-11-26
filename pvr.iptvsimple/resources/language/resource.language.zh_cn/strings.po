@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2026-04-22 03:31+0000\n"
+"PO-Revision-Date: 2026-11-05 01:32+0000\n"
 "Last-Translator: wabisabi926 <wabisabi926@foxmail.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://kodi.weblate.cloud/projects/kodi-add-ons-pvr-clients/pvr-iptvsimple/zh_Hans/>\n"
 "Language: zh_cn\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.17\n"
+"X-Generator: Weblate 2026.11\n"
 
 msgctxt "Addon Summary"
 msgid "Kodi PVR addon for IPTV support."
@@ -434,6 +434,21 @@ msgctxt "#30077"
 msgid "Ignore Case for EPG Channel IDs"
 msgstr "电子节目指南频道 ID 匹配忽略大小写"
 
+#. label-group: General - M3U Startup Check
+msgctxt "#30078"
+msgid "M3U Startup Check"
+msgstr "启动时校验 M3U"
+
+#. label: Catchup - connectCheckTimoutSecs
+msgctxt "#30079"
+msgid "Timeout for check"
+msgstr "校验超时时间"
+
+#. label: Catchup - connectCheckIntervalSecs
+msgctxt "#30080"
+msgid "Interval for check"
+msgstr "校验间隔"
+
 # empty strings from id 30075 to 30099
 #. label-category: catchup
 #. label-group: Catchup - Catchup
@@ -639,6 +654,11 @@ msgctxt "#30160"
 msgid "Force all M3U entries to be media"
 msgstr "强制全部 M3U 条目识别为媒体资源"
 
+#. label: General - reloadOnLocalFileChange
+msgctxt "#30161"
+msgid "Reload when local files change"
+msgstr "本地文件变更时重新加载"
+
 # empty strings from id 30128 to 30449
 #. label: TV
 msgctxt "#30450"
@@ -819,6 +839,16 @@ msgstr "是否用`电子节目指南时间偏移`覆盖所有频道的时移。�
 msgctxt "#30627"
 msgid "Ignore Case for EPG Channel IDs, also known as tvg-id's, when matching channels to EPG entries. If disabled, only case senitive matching will be used."
 msgstr "将频道与电子节目指南条目匹配时，忽略电子节目指南频道 ID（也称为 tvg-id）的大小写。如果禁用，则仅使用区分大小写匹配。"
+
+#. help: EPG Settings - connectionCheckTimeoutSecs
+msgctxt "#30628"
+msgid "When checking for a valid M3U file, the length of time to wait before timing out the attempt."
+msgstr "校验 M3U 文件是否有效时，本次尝试在超时前的等待时长。"
+
+#. help: EPG Settings - connectionCheckIntervalSecs
+msgctxt "#30629"
+msgid "When checking for a valid M3U file, the length of time to wait between attempts. Note that a valid file will only be checked for on startup and once a valid file is found all checks stop."
+msgstr "校验 M3U 文件是否有效时，各次尝试之间的等待时长。请注意，仅在启动阶段校验有效文件；一旦找到有效文件，将停止所有校验。"
 
 # empty strings from id 30627 to 30639
 #. help info - Channel Logos
@@ -1041,6 +1071,11 @@ msgstr "用于将从 M3U 接收的提供商名称或默认提供商名称映射�
 msgctxt "#30743"
 msgid "Settings on customising channel groups."
 msgstr "自定义频道组的设置。"
+
+#. help: General - reloadOnLocalFileChange
+msgctxt "#30744"
+msgid "Reload the channels and EPG a few seconds after a local M3U or XMLTV file changes, without restarting the add-on. Useful when another add-on or script writes these files. Remote URLs are not checked."
+msgstr "本地 M3U 或 XMLTV 文件发生变更数秒后，重载频道与节目单，无需重启插件。适用于其他插件或脚本写入这些文件的场景，不会检测远程地址。"
 
 # empty strings from id 30744 to 30799
 #. help info - Media

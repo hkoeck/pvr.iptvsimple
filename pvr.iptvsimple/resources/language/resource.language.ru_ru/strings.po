@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2026-06-01 23:16+0000\n"
+"PO-Revision-Date: 2026-11-10 13:50+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://kodi.weblate.cloud/projects/kodi-add-ons-pvr-clients/pvr-iptvsimple/ru_ru/>\n"
 "Language: ru_ru\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2026.6.1\n"
+"X-Generator: Weblate 2026.11.1\n"
 
 msgctxt "Addon Summary"
 msgid "Kodi PVR addon for IPTV support."
@@ -434,6 +434,21 @@ msgctxt "#30077"
 msgid "Ignore Case for EPG Channel IDs"
 msgstr "Игнорировать регистр для идентификаторов каналов EPG"
 
+#. label-group: General - M3U Startup Check
+msgctxt "#30078"
+msgid "M3U Startup Check"
+msgstr "Проверка M3U при запуске"
+
+#. label: Catchup - connectCheckTimoutSecs
+msgctxt "#30079"
+msgid "Timeout for check"
+msgstr "Тайм-аут проверки"
+
+#. label: Catchup - connectCheckIntervalSecs
+msgctxt "#30080"
+msgid "Interval for check"
+msgstr "Интервал проверки"
+
 # empty strings from id 30075 to 30099
 #. label-category: catchup
 #. label-group: Catchup - Catchup
@@ -469,7 +484,7 @@ msgstr "Просмотр из EPG"
 #. label: Catchup - catchupPlayEpgAsLive
 msgctxt "#30106"
 msgid "Play from EPG in Live TV mode (using timeshift)"
-msgstr "Запускать из телепрограммы в режиме ТВ (используя timeshift)"
+msgstr "Запускать из телепрограммы в режиме ТВ (используя сдвиг по времени)"
 
 #. label: Catchup - catchupWatchEpgBeginBuffer
 msgctxt "#30107"
@@ -489,7 +504,7 @@ msgstr "Архив доступен только для завершенных �
 #. label-option: Catchup - allChannelsCatchupMode
 msgctxt "#30110"
 msgid "Disabled"
-msgstr "Откл."
+msgstr "Отключено"
 
 #. label-option: Catchup - allChannelsCatchupMode
 msgctxt "#30111"
@@ -499,7 +514,7 @@ msgstr "По умолчанию"
 #. label-option: Catchup - allChannelsCatchupMode
 msgctxt "#30112"
 msgid "Append"
-msgstr "Append"
+msgstr "Добавлять"
 
 #. label-option: Catchup - allChannelsCatchupMode
 msgctxt "#30113"
@@ -638,6 +653,11 @@ msgstr "Если отсутствует media-dir"
 msgctxt "#30160"
 msgid "Force all M3U entries to be media"
 msgstr "Заставить все записи M3U стать медиа"
+
+#. label: General - reloadOnLocalFileChange
+msgctxt "#30161"
+msgid "Reload when local files change"
+msgstr "Перезагружать при изменении локальных файлов"
 
 # empty strings from id 30128 to 30449
 #. label: TV
@@ -819,6 +839,16 @@ msgstr "Следует ли переопределять сдвиг времен
 msgctxt "#30627"
 msgid "Ignore Case for EPG Channel IDs, also known as tvg-id's, when matching channels to EPG entries. If disabled, only case senitive matching will be used."
 msgstr "Игнорировать регистр для идентификаторов каналов EPG, также известных как tvg-id, при сопоставлении каналов с записями EPG. Если этот параметр отключен, будет использоваться только сопоставление с учетом регистра."
+
+#. help: EPG Settings - connectionCheckTimeoutSecs
+msgctxt "#30628"
+msgid "When checking for a valid M3U file, the length of time to wait before timing out the attempt."
+msgstr "При проверке действительного файла M3U — сколько времени ждать до истечения тайм-аута попытки."
+
+#. help: EPG Settings - connectionCheckIntervalSecs
+msgctxt "#30629"
+msgid "When checking for a valid M3U file, the length of time to wait between attempts. Note that a valid file will only be checked for on startup and once a valid file is found all checks stop."
+msgstr "При проверке действительного файла M3U — сколько времени ждать между попытками. Учтите, что наличие действительного файла проверяется только при запуске, и как только действительный файл найден, все проверки прекращаются."
 
 # empty strings from id 30627 to 30639
 #. help info - Channel Logos
@@ -1041,6 +1071,11 @@ msgstr "Файл конфигурации для сопоставления им
 msgctxt "#30743"
 msgid "Settings on customising channel groups."
 msgstr "Настройки персонализации групп каналов."
+
+#. help: General - reloadOnLocalFileChange
+msgctxt "#30744"
+msgid "Reload the channels and EPG a few seconds after a local M3U or XMLTV file changes, without restarting the add-on. Useful when another add-on or script writes these files. Remote URLs are not checked."
+msgstr "Перезагружать каналы и EPG через несколько секунд после изменения локального файла M3U или XMLTV, не перезапуская дополнение. Полезно, когда эти файлы записывает другое дополнение или скрипт. Удалённые URL-адреса не проверяются."
 
 # empty strings from id 30744 to 30799
 #. help info - Media

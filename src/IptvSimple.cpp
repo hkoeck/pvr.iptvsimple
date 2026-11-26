@@ -126,6 +126,8 @@ void IptvSimple::ConnectionEstablished()
   m_channelGroups.Init();
   m_providers.Init();
   m_playlistLoader.Init();
+  // Taken before loading, so a change made while loading is still picked up
+  ResetWatchedFiles();
   if (m_playlistLoader.LoadPlayList())
   {
     // LoadPlayList() only fills our own in-memory lists; Kodi core must be
@@ -141,7 +143,6 @@ void IptvSimple::ConnectionEstablished()
     m_channels.ChannelsLoadFailed();
     m_channelGroups.ChannelGroupsLoadFailed();
   }
-  m_epgFileMtime = EpgFileMtime();
   m_epg.Init(EpgMaxPastDays(), EpgMaxFutureDays());
 
   kodi::Log(ADDON_LOG_INFO, "%s Starting separate client update thread...", __FUNCTION__);
@@ -241,17 +242,9 @@ void IptvSimple::Process()
         lastRefreshHour != timeInfo.tm_hour && timeInfo.tm_hour == m_settings->GetM3URefreshHour())
       m_reloadChannelsGroupsAndEPG = true;
 
-    // Reload as soon as a local XMLTV file is replaced. The triggers Epg::Init()
-    // could send at startup are dropped by Kodi (see there), and Kodi itself
-    // re-asks a channel without guide data only every 2 h
-    // (updateemptytagsinterval), so a stale file at startup left the guide
-    // empty until the next timed refresh. The generator (Magenta addon) writes
-    // the file right after every Kodi start and replaces it atomically, so this
-    // reload is what fills the guide after a start.
-    const time_t epgFileMtime = EpgFileMtime();
-    if (epgFileMtime != 0 && epgFileMtime != m_epgFileMtime && !m_reloadChannelsGroupsAndEPG)
+    if (m_settings->ReloadOnLocalFileChange() && LocalFilesChanged())
     {
-      Logger::Log(LEVEL_INFO, "%s - EPG file changed, reloading", __FUNCTION__);
+      Logger::Log(LEVEL_INFO, "%s - Local M3U/XMLTV file changed, reloading", __FUNCTION__);
       m_reloadChannelsGroupsAndEPG = true;
     }
 
@@ -261,7 +254,8 @@ void IptvSimple::Process()
       std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
       m_settings->ReloadAddonInstanceSettings();
-      m_epgFileMtime = EpgFileMtime();
+      // Taken before loading, so a change made while loading is still picked up
+      ResetWatchedFiles();
       m_playlistLoader.ReloadPlayList();
       m_epg.ReloadEPG(); // Reloading EPG also updates media
 
@@ -272,16 +266,57 @@ void IptvSimple::Process()
   }
 }
 
-time_t IptvSimple::EpgFileMtime() const
+/***************************************************************************
+ * Local file change detection
+ **************************************************************************/
+
+IptvSimple::LocalFileState IptvSimple::GetLocalFileState(const std::string& path)
 {
-  if (m_settings->GetEpgPathType() != PathType::LOCAL_PATH)
-    return 0;
-
+  LocalFileState state;
   kodi::vfs::FileStatus status;
-  if (!kodi::vfs::StatFile(m_settings->GetEpgLocation(), status))
-    return 0;
+  if (!path.empty() && kodi::vfs::StatFile(path, status))
+  {
+    state.modified = status.GetModificationTime();
+    state.size = static_cast<int64_t>(status.GetSize());
+  }
+  return state;
+}
 
-  return status.GetModificationTime();
+void IptvSimple::ResetWatchedFiles()
+{
+  // Only local files are watched. An empty EPG path falls back to the url in the
+  // M3U header, which is remote, so it is not watched either.
+  m_watchedM3U.path = m_settings->GetM3UPathType() == PathType::LOCAL_PATH ? m_settings->GetM3UPath() : "";
+  m_watchedEpg.path = m_settings->GetEpgPathType() == PathType::LOCAL_PATH ? m_settings->GetEpgPath() : "";
+
+  for (WatchedFile* file : {&m_watchedM3U, &m_watchedEpg})
+  {
+    file->loaded = GetLocalFileState(file->path);
+    file->seen = file->loaded;
+  }
+}
+
+bool IptvSimple::WatchedFileChanged(WatchedFile& file)
+{
+  if (file.path.empty())
+    return false;
+
+  const LocalFileState current = GetLocalFileState(file.path);
+  // A changed file is only reported once it was unchanged for a whole check
+  // interval, so a file that is still being written is not loaded half done.
+  // A missing file is not reported: reloading would only clear the channels.
+  const bool exists = current.size >= 0;
+  const bool changed = exists && current != file.loaded && current == file.seen;
+  file.seen = current;
+  return changed;
+}
+
+bool IptvSimple::LocalFilesChanged()
+{
+  // Both files are checked every time so each keeps an up to date 'seen' state
+  const bool m3uChanged = WatchedFileChanged(m_watchedM3U);
+  const bool epgChanged = WatchedFileChanged(m_watchedEpg);
+  return m3uChanged || epgChanged;
 }
 
 /***************************************************************************

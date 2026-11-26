@@ -20,7 +20,10 @@
 
 #include <atomic>
 #include <condition_variable>
+#include <cstdint>
+#include <ctime>
 #include <mutex>
+#include <string>
 #include <thread>
 #include <vector>
 
@@ -96,11 +99,26 @@ protected:
 private:
   static const int PROCESS_LOOP_WAIT_SECS = 2;
 
-  // Modification time of a local XMLTV file, 0 for remote paths or when the
-  // file can't be stat'ed.
-  time_t EpgFileMtime() const;
-  // EpgFileMtime() as of the last (re)load, see Process().
-  time_t m_epgFileMtime = 0;
+  // State of a local M3U/XMLTV file, used to reload when the file changes
+  struct LocalFileState
+  {
+    time_t modified = 0;
+    int64_t size = -1;
+    bool operator==(const LocalFileState& other) const { return modified == other.modified && size == other.size; }
+    bool operator!=(const LocalFileState& other) const { return !(*this == other); }
+  };
+
+  struct WatchedFile
+  {
+    std::string path;
+    LocalFileState loaded; // state when the file was last loaded
+    LocalFileState seen; // state at the previous check
+  };
+
+  static LocalFileState GetLocalFileState(const std::string& path);
+  void ResetWatchedFiles();
+  bool WatchedFileChanged(WatchedFile& file);
+  bool LocalFilesChanged();
 
   std::shared_ptr<iptvsimple::InstanceSettings> m_settings;
 
@@ -125,4 +143,6 @@ private:
   std::mutex m_connectionMutex;
   std::condition_variable m_connectionCv;
   bool m_connectionResolved = false;
+  WatchedFile m_watchedM3U;
+  WatchedFile m_watchedEpg;
 };
