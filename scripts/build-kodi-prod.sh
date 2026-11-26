@@ -3,7 +3,9 @@
 #
 # Usage: scripts/build-kodi-prod.sh <full xbmc/xbmc commit sha>
 #   The commit is the one Flathub's tv.kodi.Kodi beta manifest pins
-#   (homeserver-infra/scripts/check_pvr_iptvsimple_drift.py prints it).
+#   (homeserver-infra/scripts/check_pvr_iptvsimple_drift.py prints it), recorded in
+#   kodi-prod-xbmc-commit. Normally run by .github/workflows/kodi-prod.yml on every push to
+#   integration/prod, which also publishes the release (homeserver-infra#508); local runs still work.
 #
 # Why a script: the binary addon ABI must match the Kodi build exactly (a mismatch SIGABRTs at
 # addon load), and a reused xbmc checkout silently picks up local edits. Every run therefore

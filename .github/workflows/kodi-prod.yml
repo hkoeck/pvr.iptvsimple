@@ -1,0 +1,82 @@
+# Homeserver prod release assets of this fork (hkoeck/homeserver-infra#508): every push to
+# integration/prod builds the Linux and the Android (armeabi-v7a) asset against the xbmc commit in
+# kodi-prod-xbmc-commit and publishes each as its own release. The build steps stay in
+# scripts/build-kodi-prod*.sh (one build definition, also runnable locally); this file only
+# provides the toolchain and the release upload.
+#
+# Tags are kodi-prod[-android]-<addon version>-<fork sha>. A Kodi pin bump is a commit to
+# kodi-prod-xbmc-commit, so every build gets a new fork sha and a new tag; an existing tag makes
+# `gh release create` fail instead of overwriting an asset the homeserver pins by sha256.
+#
+# Third-party: actions/checkout v5 (MIT, GitHub). gh CLI and the Android SDK cmdline-tools are
+# preinstalled on the runner image; NDK r28c comes from Google's SDK repository via sdkmanager
+# (LicenseRef-Android-SDK-License, see scripts/build-kodi-prod-android.sh).
+name: Kodi prod build
+
+on:
+  push:
+    branches: [integration/prod]
+
+permissions:
+  contents: write
+
+defaults:
+  run:
+    # Explicit bash adds -o pipefail (the implicit default is bash -e only), so a failing build
+    # piped into tee fails the step.
+    shell: bash
+
+jobs:
+  linux:
+    # Pinned, not -latest: the .so must not need a newer glibc/libstdc++ than Kodi's Flatpak
+    # runtime (org.freedesktop.Platform 26.08: GLIBC_2.44, GLIBCXX_3.4.36); 24.04 ships 2.39/GCC 13.
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          # build-kodi-prod.sh asserts the directory name (ADDON_SRC_PREFIX lookup).
+          path: pvr.iptvsimple
+      - name: Build
+        working-directory: pvr.iptvsimple
+        run: |
+          WORK=$RUNNER_TEMP scripts/build-kodi-prod.sh "$(cat kodi-prod-xbmc-commit)" | tee "$RUNNER_TEMP/out"
+      - name: Release
+        working-directory: pvr.iptvsimple
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          version=$(sed -n 's/^version=\([^ ]*\) .*/\1/p' "$RUNNER_TEMP/out")
+          asset=$(sed -n 's/^asset=//p' "$RUNNER_TEMP/out")
+          tag=kodi-prod-$version-${GITHUB_SHA::7}
+          notes=$(printf 'Linux (Flatpak tv.kodi.Kodi) build of %s against xbmc/xbmc %s.\n\nsha256: `%s`\n' \
+            "${GITHUB_SHA::7}" "$(cat kodi-prod-xbmc-commit)" "$(sha256sum "$asset" | cut -d' ' -f1)")
+          gh release create "$tag" "$asset" --target "$GITHUB_SHA" --latest=false --title "$tag" --notes "$notes"
+
+  android:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          path: pvr.iptvsimple
+      - name: Install NDK r28c
+        # The revision Kodi 22's docs/README.Android.md requires; the runner's SDK provides
+        # cmdline-tools/latest, which tools/depends/configure also insists on.
+        run: yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "ndk;28.2.13676358" >/dev/null
+      - name: Build
+        working-directory: pvr.iptvsimple
+        run: |
+          ANDROID_SDK=$ANDROID_HOME WORK=$RUNNER_TEMP \
+            scripts/build-kodi-prod-android.sh "$(cat kodi-prod-xbmc-commit)" "$GITHUB_SHA" | tee "$RUNNER_TEMP/out"
+      - name: Release
+        working-directory: pvr.iptvsimple
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          version=$(sed -n 's/^version=\([^ ]*\) .*/\1/p' "$RUNNER_TEMP/out")
+          asset=$(sed -n 's/^asset=//p' "$RUNNER_TEMP/out")
+          tag=kodi-prod-android-$version-${GITHUB_SHA::7}
+          notes=$(printf 'Android armeabi-v7a (Fire TV) build of %s against xbmc/xbmc %s.\n\nsha256: `%s`\n' \
+            "${GITHUB_SHA::7}" "$(cat kodi-prod-xbmc-commit)" "$(sha256sum "$asset" | cut -d' ' -f1)")
+          gh release create "$tag" "$asset" --target "$GITHUB_SHA" --latest=false --title "$tag" --notes "$notes"

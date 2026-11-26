@@ -5,6 +5,8 @@
 # Usage: scripts/build-kodi-prod-android.sh <full xbmc/xbmc commit sha> [fork ref, default HEAD]
 #   Use the same xbmc commit as the Linux asset (the Fire TV runs the Kodi release of that tag) and
 #   the fork ref the Linux asset was built from, so both platforms ship the same code.
+#   Normally run by .github/workflows/kodi-prod.yml (ANDROID_SDK = the runner's preinstalled SDK
+#   plus NDK r28c via sdkmanager, homeserver-infra#508); local runs still work.
 #
 # Toolchain (third-party, not in any EL repo - homeserver rule 18):
 #   Android NDK r28c (28.2.13676358, the revision Kodi 22's docs/README.Android.md requires) and
