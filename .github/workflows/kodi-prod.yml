@@ -59,6 +59,10 @@ jobs:
       - uses: actions/checkout@v5
         with:
           path: pvr.iptvsimple
+      - name: Install libcurl headers
+        # tools/depends bootstraps its native cmake with --system-curl (find_package(CURL)); the
+        # runner image ships curl without the dev package.
+        run: sudo apt-get install -y --no-install-recommends libcurl4-openssl-dev >/dev/null
       - name: Install NDK r28c
         # The revision Kodi 22's docs/README.Android.md requires; the runner's SDK provides
         # cmdline-tools/latest, which tools/depends/configure also insists on. `yes` answers a
