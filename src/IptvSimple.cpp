@@ -141,6 +141,7 @@ void IptvSimple::ConnectionEstablished()
     m_channels.ChannelsLoadFailed();
     m_channelGroups.ChannelGroupsLoadFailed();
   }
+  m_epgFileMtime = EpgFileMtime();
   m_epg.Init(EpgMaxPastDays(), EpgMaxFutureDays());
 
   kodi::Log(ADDON_LOG_INFO, "%s Starting separate client update thread...", __FUNCTION__);
@@ -240,12 +241,27 @@ void IptvSimple::Process()
         lastRefreshHour != timeInfo.tm_hour && timeInfo.tm_hour == m_settings->GetM3URefreshHour())
       m_reloadChannelsGroupsAndEPG = true;
 
+    // Reload as soon as a local XMLTV file is replaced. The triggers Epg::Init()
+    // could send at startup are dropped by Kodi (see there), and Kodi itself
+    // re-asks a channel without guide data only every 2 h
+    // (updateemptytagsinterval), so a stale file at startup left the guide
+    // empty until the next timed refresh. The generator (Magenta addon) writes
+    // the file right after every Kodi start and replaces it atomically, so this
+    // reload is what fills the guide after a start.
+    const time_t epgFileMtime = EpgFileMtime();
+    if (epgFileMtime != 0 && epgFileMtime != m_epgFileMtime && !m_reloadChannelsGroupsAndEPG)
+    {
+      Logger::Log(LEVEL_INFO, "%s - EPG file changed, reloading", __FUNCTION__);
+      m_reloadChannelsGroupsAndEPG = true;
+    }
+
     std::lock_guard<std::mutex> lock(m_mutex);
     if (m_running && m_reloadChannelsGroupsAndEPG)
     {
       std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
       m_settings->ReloadAddonInstanceSettings();
+      m_epgFileMtime = EpgFileMtime();
       m_playlistLoader.ReloadPlayList();
       m_epg.ReloadEPG(); // Reloading EPG also updates media
 
@@ -254,6 +270,18 @@ void IptvSimple::Process()
     }
     lastRefreshHour = timeInfo.tm_hour;
   }
+}
+
+time_t IptvSimple::EpgFileMtime() const
+{
+  if (m_settings->GetEpgPathType() != PathType::LOCAL_PATH)
+    return 0;
+
+  kodi::vfs::FileStatus status;
+  if (!kodi::vfs::StatFile(m_settings->GetEpgLocation(), status))
+    return 0;
+
+  return status.GetModificationTime();
 }
 
 /***************************************************************************

@@ -96,6 +96,12 @@ protected:
 private:
   static const int PROCESS_LOOP_WAIT_SECS = 2;
 
+  // Modification time of a local XMLTV file, 0 for remote paths or when the
+  // file can't be stat'ed.
+  time_t EpgFileMtime() const;
+  // EpgFileMtime() as of the last (re)load, see Process().
+  time_t m_epgFileMtime = 0;
+
   std::shared_ptr<iptvsimple::InstanceSettings> m_settings;
 
   iptvsimple::data::Channel m_currentChannel{m_settings};

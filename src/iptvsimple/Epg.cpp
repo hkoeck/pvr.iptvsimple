@@ -98,14 +98,12 @@ bool Epg::Init(int epgMaxPastDays, int epgMaxFutureDays)
     // or not kodi considers it necessary when either 1) we need the EPG logos or 2) for
     // catchup we need a local store of the EPG data
     time_t now = std::time(nullptr);
-    if (LoadEPG(now - m_epgMaxPastDaysSeconds, now + m_epgMaxFutureDaysSeconds))
-    {
-      // LoadEPG() only fills our own in-memory m_channelEpgs; Kodi core
-      // must be told to pull it via TriggerEpgUpdate(), same as
-      // ReloadEPG() already does on its periodic timer below.
-      for (const auto& myChannel : m_channels.GetChannelsList())
-        m_client->TriggerEpgUpdate(myChannel.GetUniqueId());
-    }
+    // No TriggerEpgUpdate() here: Init() runs inside Kodi's client Create(),
+    // and the PVR manager started right after it clears all queued EPG update
+    // requests (CPVRManager::Process -> UnloadComponents ->
+    // CPVREpgContainer::Unload), so triggers sent now are always lost.
+    // IptvSimple::Process() reloads (and triggers) once the XMLTV file changes.
+    LoadEPG(now - m_epgMaxPastDaysSeconds, now + m_epgMaxFutureDaysSeconds);
     MergeEpgDataIntoMedia();
   }
 
