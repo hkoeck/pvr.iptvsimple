@@ -16,6 +16,8 @@ name: Kodi prod build
 on:
   push:
     branches: [integration/prod]
+    # Docs-only pushes would only publish another release of the same code.
+    paths-ignore: ['**.md']
 
 permissions:
   contents: write
